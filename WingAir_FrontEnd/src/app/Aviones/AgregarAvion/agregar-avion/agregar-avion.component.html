@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <h2> Agregar Avión </h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 m-md-3">
+            <div class="form-group col-md-4">
+                <label>Tipo de avión:</label>
+                <input type="text" class="form-control" maxlength="50" #tipoAvion>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Capacidad de pasajeros:</label>
+                <input type="number" class="form-control" maxlength="15" #capacidadPasajeros>
+            </div>
+            <div class="form-group col-md-6" style="text-align: right;">
+                <button class="btn btn-primary" (click)="guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

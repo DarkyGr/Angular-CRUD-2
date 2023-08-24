@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center"> Detalles Avión</h2>
+
+        <!-- <h2 class="d-flex justify-content-center">Chofer con Id: {{dataChofer.ChoferId}}</h2> -->
+
+        <div class="col-md-12 p-md-2 d-flex justify-content-center">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <img src="https://cdn.icon-icons.com/icons2/187/PNG/256/Falcon_22858.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{dataAvion.Codigo}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ID:</b> {{dataAvion.AvionId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Tipo de avión:</b> {{dataAvion.TipoId}}</li>
+                    <li class="list-group-item"><b>Horas de vuelo:</b><br> {{dataAvion.HorasVuelo}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Capacidad de Pasajeros:</b> {{dataAvion.CapacidadPasajeros}}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-center">
+                    <a class="btn btn-warning m-md-1" [routerLink]="['/ListarAviones']"><i class="fa-solid fa-arrow-left fa-beat"></i> Volver</a>
+                    <a class="btn btn-danger m-md-1" (click)="eliminar()"><i c  lass="fa-solid fa-trash fa-beat-fade"></i> Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

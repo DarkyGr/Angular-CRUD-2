@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <h2> Editando Avión con ID: {{dataAvion.AvionId}} </h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 m-md-3">
+            <div class="form-group col-md-4">
+                <label>Capacidad de pasajeros:</label>
+                <input type="number" class="form-control" maxlength="15" #capacidadPasajeros [value]="dataAvion.CapacidadPasajeros">
+            </div>
+            <div class="form-group col-md-6" style="text-align: right;">
+                <button class="btn btn-warning" (click)="editar()">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>

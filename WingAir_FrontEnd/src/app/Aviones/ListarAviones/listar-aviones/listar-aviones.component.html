@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center"> Lista de Aviones </h2>
+    </div>
+
+    <div class="row">
+
+        <div *ngFor="let a of listaAviones" class="col-md-3 p-md-2">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <img src="https://cdn.icon-icons.com/icons2/187/PNG/256/Falcon_22858.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{a.Codigo}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ID:</b> {{a.AvionId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Tipo de avión:</b> {{a.TipoId}}</li>
+                    <li class="list-group-item"><b>Horas de vuelo:</b><br> {{a.HorasVuelo}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Capacidad de Pasajeros:</b> {{a.CapacidadPasajeros}}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-center">
+                    <a class="btn btn-info m-md-1" [routerLink]="['/DetallesAvion', a.AvionId]"><i class="fa-solid fa-eye fa-bounce"></i> Ver detalles</a>
+                    <a class="btn btn-warning m-md-1" [routerLink]="['/EditarAvion', a.AvionId]"><i class="fa-solid fa-pen-to-square fa-flip"></i> Editar</a>
+                    <!-- <a class="btn btn-danger m-md-1">Eliminar</a> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
