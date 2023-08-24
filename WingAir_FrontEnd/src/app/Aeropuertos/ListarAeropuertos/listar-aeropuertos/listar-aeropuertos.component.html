@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center"> Lista de Aeropuertos </h2>
+    </div>
+
+    <div class="row">
+
+        <div *ngFor="let a of listaAeropuertos" class="col-md-3 p-md-2">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <img src="https://images.arq.com.mx/eyecatcher/590590/24897.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{a.Nombre}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ID:</b> {{a.AeropuertoId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Municipio:</b> {{a.Municipio}}</li>
+                    <li class="list-group-item"><b>Estado:</b><br> {{a.Estado}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>País:</b> {{a.Pais}}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-center">
+                    <a class="btn btn-info m-md-1" [routerLink]="['/DetallesAeropuerto', a.AeropuertoId]"><i class="fa-solid fa-eye fa-bounce"></i> Ver detalles</a>
+                    <a class="btn btn-warning m-md-1" [routerLink]="['/EditarAeropuerto', a.AeropuertoId]"><i class="fa-solid fa-pen-to-square fa-flip"></i> Editar</a>
+                    <!-- <a class="btn btn-danger m-md-1">Eliminar</a> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

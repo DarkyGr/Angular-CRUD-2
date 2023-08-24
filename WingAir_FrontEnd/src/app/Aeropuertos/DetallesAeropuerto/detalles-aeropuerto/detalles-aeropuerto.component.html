@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center"> Detalles Aeropuerto</h2>
+
+        <!-- <h2 class="d-flex justify-content-center">Chofer con Id: {{dataChofer.ChoferId}}</h2> -->
+
+        <div class="col-md-12 p-md-2 d-flex justify-content-center">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <img src="https://images.arq.com.mx/eyecatcher/590590/24897.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{dataAeropuerto.Nombre}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ID:</b> {{dataAeropuerto.AeropuertoId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Municipio:</b> {{dataAeropuerto.Municipio}}</li>
+                    <li class="list-group-item"><b>Estado:</b><br> {{dataAeropuerto.Estado}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>País:</b> {{dataAeropuerto.Pais}}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-center">
+                    <a class="btn btn-warning m-md-1" [routerLink]="['/ListarAeropuertos']"><i class="fa-solid fa-arrow-left fa-beat"></i> Volver</a>
+                    <a class="btn btn-danger m-md-1" (click)="eliminar()"><i c  lass="fa-solid fa-trash fa-beat-fade"></i> Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
