@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center"> Lista de Vuelos </h2>
+    </div>
+
+    <div class="row">
+
+        <div *ngFor="let v of listaVuelos" class="col-md-3 p-md-2">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <img src="https://www.portafolio.co/files/article_multimedia/uploads/2022/12/26/63a9cdb892a93.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{v.Nombre}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ID:</b> {{v.VueloId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Aeropuerto de origen:</b> {{v.AeropuertoOrigenId}}</li>
+                    <li class="list-group-item"><b>Aeropuerto de destino:</b> {{v.AeropuertoDestinoId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Avión:</b> {{v.AvionId}}</li>
+                    <li class="list-group-item"><b>Piloto:</b> {{v.PilotoId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Estatus:</b> {{v.EstatusId}}</li>
+                    <li class="list-group-item"><b>Fecha de salida:</b> {{v.FechaSalida}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Fecha de llegada estimada:</b> {{v.FechaLlegadaEstimada}}</li>
+                    <li class="list-group-item"><b>Fecha de llegada real:</b> {{v.FechaLlegadaReal}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Horas de vuelo:</b> {{v.HorasVuelo}}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-center">
+                    <a class="btn btn-info m-md-1" [routerLink]="['/DetallesVuelo', v.VueloId]"><i class="fa-solid fa-eye fa-bounce"></i> Ver detalles</a>
+                    <a class="btn btn-warning m-md-1" [routerLink]="['/EditarVuelo', v.VueloId]"><i class="fa-solid fa-pen-to-square fa-flip"></i> Editar</a>
+                    <!-- <a class="btn btn-danger m-md-1">Eliminar</a> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

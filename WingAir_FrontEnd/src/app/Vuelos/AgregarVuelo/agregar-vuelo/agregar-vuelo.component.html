@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <h2> Agregar Vuelo </h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 m-md-3">
+            <div class="form-group col-md-4">
+                <label>Aeropuerto Origen:</label>
+                <input type="number" class="form-control" maxlength="150" #aeropuertoOrigenId>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Aeropuerto Destino:</label>
+                <input type="number" class="form-control" maxlength="1" #aeropuertoDestinoId>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Avión:</label>
+                <input type="number" class="form-control" maxlength="1" #avionId>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Piloto:</label>
+                <input type="number" class="form-control" maxlength="1" #pilotoId>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Estatus:</label>
+                <input type="number" class="form-control" maxlength="1" #estatusId>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Fecha de salida:</label>
+                <input type="date" class="form-control" maxlength="20" #fechaSalida>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Fecha de llegada estimada:</label>
+                <input type="date" class="form-control" maxlength="20" #fechaLlegadaEstimada>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Fecha de llegada real:</label>
+                <input type="date" class="form-control" maxlength="20" #fechaLlegadaReal>
+            </div>
+            <div class="form-group col-md-6" style="text-align: right;">
+                <button class="btn btn-primary" (click)="guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
