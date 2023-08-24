@@ -49,7 +49,7 @@ namespace WingAir_API.Controllers
                     VuelosVO aux = new VuelosVO();
 
                     aux.VueloId = v.VueloId;
-                    aux.AeropuertoDestinoId = v.AeropuertoOrigenId;
+                    aux.AeropuertoOrigenId = v.AeropuertoOrigenId;
                     aux.AeropuertoDestinoId = v.AeropuertoDestinoId;
                     aux.AvionId = v.AvionId;
                     aux.PilotoId = v.PilotoId;
