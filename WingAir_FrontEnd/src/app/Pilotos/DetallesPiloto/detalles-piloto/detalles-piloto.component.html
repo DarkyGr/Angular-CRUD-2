@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center"> Detalles Piloto</h2>
+
+        <!-- <h2 class="d-flex justify-content-center">Chofer con Id: {{dataChofer.ChoferId}}</h2> -->
+
+        <div class="col-md-12 p-md-2 d-flex justify-content-center">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <img src="https://cdn.domestika.org/c_fill,dpr_auto,f_auto,h_256,pg_1,t_base_params,w_256/v1601402690/avatars/004/309/041/4309041-original.jpg?1601402690" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{dataPiloto.Codigo}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ID:</b> {{dataPiloto.PilotoId}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Nombre:</b> {{dataPiloto.Nombre}}</li>
+                    <li class="list-group-item"><b>Sexo:</b><br> {{dataPiloto.Sexo}}</li>
+                    <li class="list-group-item bg-secondary bg-gradient text-white"><b>Horas de vuelo:</b> {{dataPiloto.HorasVuelo}}</li>
+                </ul>
+                <div class="card-body d-flex justify-content-center">
+                    <a class="btn btn-warning m-md-1" [routerLink]="['/ListarPilotos']"><i class="fa-solid fa-arrow-left fa-beat"></i> Volver</a>
+                    <a class="btn btn-danger m-md-1" (click)="eliminar()"><i c  lass="fa-solid fa-trash fa-beat-fade"></i> Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
