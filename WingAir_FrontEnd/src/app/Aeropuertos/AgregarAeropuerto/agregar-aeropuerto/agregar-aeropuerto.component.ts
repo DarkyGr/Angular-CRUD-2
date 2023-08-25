@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AeropuertoService } from '../../Servicios/aeropuerto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-aeropuerto',
@@ -32,6 +33,15 @@ export class AgregarAeropuertoComponent {
     const pais = this.pais.nativeElement.value;
     // const disponibilidad = this.disponibilidad;
 
-    this.service.InsertarAeropuerto(nombre, municipio, estado, pais);
+    if (nombre != "" && municipio != "" && estado != "" && pais != "") {
+      this.service.InsertarAeropuerto(nombre, municipio, estado, pais);
+    }else{
+      Swal.fire({
+        title: 'Advertencia!',
+        text: 'Ningún campo puede quedar vacío.',
+        icon: 'warning',
+        confirmButtonText: 'Ok'
+      })
+    }
   }
 }
