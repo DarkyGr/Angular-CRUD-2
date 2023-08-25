@@ -9,10 +9,18 @@ import Swal from 'sweetalert2';
 export class VueloService {
 
   public listaVuelos: any[];
+  public listaAeropuertos: any[];
+  public listaAviones: any[];
+  public listaPilotos: any[];
+  public listaEstatus: any[];
   public vuelo: any;
 
   constructor(private http: HttpClient, private router: Router) {
     this.listaVuelos = []
+    this.listaAeropuertos = []
+    this.listaAviones = []
+    this.listaPilotos = []
+    this.listaEstatus = []
     this.vuelo = {}
   }
 
@@ -24,6 +32,41 @@ export class VueloService {
       this.listaVuelos = respuesta
     })
   }
+
+  GetAeropuertos(): void {
+    // Trae una respuesta de cualquier cosa  
+    this.http.get("http://localhost:55323/api/AeropuertosAPI/GetList").subscribe((respuesta: any) => {
+      // console.log(respuesta);
+      this.listaAeropuertos = respuesta
+    })
+  }
+
+  GetAviones(): void {
+    // Trae una respuesta de cualquier cosa  
+    this.http.get("http://localhost:55323/api/AvionesAPI/GetList").subscribe((respuesta: any) => {
+      // console.log(respuesta);
+      this.listaAviones = respuesta
+    })
+  }
+
+  GetPilotos(): void {
+    // Trae una respuesta de cualquier cosa  
+    this.http.get("http://localhost:55323/api/PilotosAPI/GetList").subscribe((respuesta: any) => {
+      // console.log(respuesta);
+      this.listaPilotos = respuesta
+    })
+  }
+
+  GetEstatus(): void {
+    // Trae una respuesta de cualquier cosa  
+    this.http.get("http://localhost:55323/api/EstatusAPI/GetList").subscribe((respuesta: any) => {
+      // console.log(respuesta);
+      this.listaEstatus = respuesta
+    })
+  }
+
+
+
 
   VueloById(id: number) {
     this.http.get("http://localhost:55323/api/VuelosAPI/GetById/" + id).subscribe((respuesta: any) => {

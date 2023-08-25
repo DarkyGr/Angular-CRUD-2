@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VueloService } from '../../Servicios/vuelo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-vuelo',
@@ -10,6 +11,18 @@ import { VueloService } from '../../Servicios/vuelo.service';
 export class EditarVueloComponent {
   private id_param: any;
   private VueloId: number = 0;
+  public listaNueva: any[];
+
+  constructor(private route: ActivatedRoute, private service: VueloService, private router: Router){
+    this.id_param = this.route.params.subscribe(params =>{
+      this.VueloId =+ params['id'];
+      // console.log(this.AvionId)
+      this.service.VueloById(this.VueloId);      
+    })
+
+    this.listaNueva = []
+    service.GetEstatus();
+  }
 
   // @ViewChild("aeropuertoOrigenId")
   // private aeropuertoOrigenId!: ElementRef
@@ -49,19 +62,49 @@ export class EditarVueloComponent {
     const fechaLlegadaReal = this.dataVuelo.FechaLlegadaReal;
     const horasVuelo = this.dataVuelo.HorasVuelo;
     // const disponibilidad = this.disponibilidad;
+    
+    // Igual a finalizado se agregan las horas al piloto y avion
+    if(estatusId == 3){
+      for (let index = 0; index < this.listaAviones.length; index++) {        
+        if(this.listaAviones[index].AvionId == avionId){
+          this.listaAviones[index].HorasVuelo = horasVuelo;
+        }
+      }
 
+      for (let index = 0; index < this.listaPilotos.length; index++) {        
+        if(this.listaPilotos[index].PilotoId == pilotoId){
+          this.listaPilotos[index].HorasVuelo = horasVuelo;
+        }
+      }
+    }
+    
     this.service.EditarVuelo(vueloId, aeropuertoOrigenId, aeropuertoDestinoId, avionId, pilotoId, estatusId, nombre, fechaSalida, fechaLlegadaEstimada, fechaLlegadaReal, horasVuelo);
-  }
-
-  constructor(private route: ActivatedRoute, private service: VueloService){
-    this.id_param = this.route.params.subscribe(params =>{
-      this.VueloId =+ params['id'];
-      // console.log(this.AvionId)
-      this.service.VueloById(this.VueloId);      
-    })
-  }
+    
+  }  
 
   get dataVuelo(){
     return this.service.vuelo
+  }
+
+  get listaEstatus() {
+    this.service.GetEstatus;
+    
+    for (let index = 0; index < this.service.listaEstatus.length; index++) {
+      if((this.service.listaEstatus[index]).EstatusId != 0){
+        this.listaNueva[index-1] = this.service.listaEstatus[index];
+      }
+    }
+
+    return this.listaNueva;
+  }
+
+  get listaAviones(){
+    this.service.GetAviones();
+    return this.service.listaAviones;
+  }
+
+  get listaPilotos(){
+    this.service.GetPilotos();
+    return this.service.listaPilotos;
   }
 }
