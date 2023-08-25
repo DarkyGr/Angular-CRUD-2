@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AvionService } from '../../Servicios/avion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-avion',
@@ -14,7 +15,7 @@ export class EditarAvionComponent {
   @ViewChild("capacidadPasajeros")
   private capacidadPasajeros!: ElementRef
 
-  editar(){
+  editar() {
     // Constante del metodo = valor del html
     const id = this.AvionId;
     const tipoAvion = this.dataAvion.TipoId;
@@ -23,18 +24,27 @@ export class EditarAvionComponent {
     const capacidadPasajeros = this.capacidadPasajeros.nativeElement.value;
     // const disponibilidad = this.disponibilidad;
 
-    this.service.EditarAvion(id, tipoAvion, codigo, horasVuelo, capacidadPasajeros);
+    if (capacidadPasajeros != "" && capacidadPasajeros > 0) {
+      this.service.EditarAvion(id, tipoAvion, codigo, horasVuelo, capacidadPasajeros);
+    } else {
+      Swal.fire({
+        title: 'Advertencia!',
+        text: 'El campo Capacidad de pasajeros no puede quedar vacío y debe ser mayor a 0.',
+        icon: 'warning',
+        confirmButtonText: 'Ok'
+      })
+    }
   }
 
-  constructor(private route: ActivatedRoute, private service:AvionService){
-    this.id_param = this.route.params.subscribe(params =>{
-      this.AvionId =+ params['id'];
+  constructor(private route: ActivatedRoute, private service: AvionService) {
+    this.id_param = this.route.params.subscribe(params => {
+      this.AvionId = + params['id'];
       // console.log(this.AvionId)
-      this.service.AvionById(this.AvionId);      
+      this.service.AvionById(this.AvionId);
     })
   }
 
-  get dataAvion(){
+  get dataAvion() {
     return this.service.avion
   }
 }

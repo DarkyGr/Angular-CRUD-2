@@ -9,10 +9,12 @@ import Swal from 'sweetalert2';
 export class AvionService {
 
   public listaAviones: any[];
+  public listaTiposAviones: any[];
   public avion: any;
 
   constructor(private http: HttpClient, private router: Router) {
     this.listaAviones = []
+    this.listaTiposAviones = []
     this.avion = {}
   }
 
@@ -22,6 +24,13 @@ export class AvionService {
     this.http.get("http://localhost:55323/api/AvionesAPI/GetList").subscribe((respuesta: any) => {
       // console.log(respuesta);
       this.listaAviones = respuesta
+    })
+  }
+
+  GetTipoAviones(): void {
+    this.http.get("http://localhost:55323/api/TiposAvionesAPI/GetList").subscribe((respuesta: any) => {
+      // console.log(respuesta);
+      this.listaTiposAviones = respuesta
     })
   }
 
